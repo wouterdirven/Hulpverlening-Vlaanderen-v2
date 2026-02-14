@@ -527,6 +527,42 @@
         }
       ]
     },
+    "urgentie": {
+      "id": "urgentie",
+      "text": "Hoe urgent is de situatie?",
+      "options": [
+        {
+          "value": "zeer_urgent",
+          "label": "Zeer urgent (binnen paar dagen hulp nodig)"
+        },
+        {
+          "value": "redelijk_urgent",
+          "label": "Redelijk urgent (binnen 1-2 weken)"
+        },
+        {
+          "value": "niet_urgent",
+          "label": "Niet urgent (kan wachten, wil goede hulp)"
+        }
+      ]
+    },
+    "duur": {
+      "id": "duur",
+      "text": "Hoe lang speelt dit al?",
+      "options": [
+        {
+          "value": "kort",
+          "label": "Net begonnen (paar dagen/weken)"
+        },
+        {
+          "value": "middel",
+          "label": "Al een tijdje (maanden)"
+        },
+        {
+          "value": "lang",
+          "label": "Al lang (jaar of langer)"
+        }
+      ]
+    },
     "thema": {
       "id": "thema",
       "text": "Wat past het beste bij je situatie?",
@@ -557,26 +593,104 @@
         }
       ]
     },
-    "sub_mentaal_jongere": {
-      "id": "sub_mentaal_jongere",
-      "text": "Waar wil je vooral over praten?",
+    "mentaal_sub1": {
+      "id": "mentaal_sub1",
+      "text": "Waar heb je vooral last van?",
       "options": [
         {
-          "value": "algemeen",
-          "label": "Hoe ik me voel"
+          "value": "angst",
+          "label": "Angst of paniekaanvallen"
         },
         {
-          "value": "school",
-          "label": "School en leren"
+          "value": "depressie",
+          "label": "Somberheid of depressieve gevoelens"
         },
         {
-          "value": "relaties",
-          "label": "Vrienden en relaties"
+          "value": "stress",
+          "label": "Stress of overspannenheid"
+        },
+        {
+          "value": "zelfmoord",
+          "label": "Zelfmoordgedachten"
+        },
+        {
+          "value": "eetstoornis",
+          "label": "Eetstoornissen"
+        },
+        {
+          "value": "anders",
+          "label": "Iets anders"
         }
       ]
     },
-    "sub_school": {
-      "id": "sub_school",
+    "mentaal_sub2": {
+      "id": "mentaal_sub2",
+      "text": "Beïnvloedt dit je dagelijks leven sterk?",
+      "options": [
+        {
+          "value": "ernstig",
+          "label": "Ja, kan nauwelijks functioneren"
+        },
+        {
+          "value": "dagelijks",
+          "label": "Ja, merk het dagelijks"
+        },
+        {
+          "value": "soms",
+          "label": "Soms wel, soms niet"
+        },
+        {
+          "value": "licht",
+          "label": "Valt nog mee"
+        }
+      ]
+    },
+    "relaties_sub1": {
+      "id": "relaties_sub1",
+      "text": "Wat speelt er vooral?",
+      "options": [
+        {
+          "value": "lichamelijk_geweld",
+          "label": "Lichamelijk of psychisch geweld"
+        },
+        {
+          "value": "seksueel_geweld",
+          "label": "Seksueel geweld of ongewenst contact"
+        },
+        {
+          "value": "relatieproblemen",
+          "label": "Relatieproblemen (ruzie, breuk)"
+        },
+        {
+          "value": "familie",
+          "label": "Familieconflicten"
+        },
+        {
+          "value": "eenzaamheid",
+          "label": "Eenzaamheid"
+        }
+      ]
+    },
+    "relaties_sub2": {
+      "id": "relaties_sub2",
+      "text": "Voel je je veilig?",
+      "options": [
+        {
+          "value": "onveilig",
+          "label": "Nee, ik voel me onveilig"
+        },
+        {
+          "value": "soms",
+          "label": "Soms wel, soms niet"
+        },
+        {
+          "value": "veilig",
+          "label": "Ja, maar heb wel hulp nodig"
+        }
+      ]
+    },
+    "school_sub1": {
+      "id": "school_sub1",
       "text": "Wat speelt vooral?",
       "options": [
         {
@@ -584,13 +698,39 @@
           "label": "Pesten of onveilig gevoel"
         },
         {
-          "value": "leren",
-          "label": "Leerproblemen of begeleiding"
+          "value": "leerproblemen",
+          "label": "Leerproblemen of concentratie"
+        },
+        {
+          "value": "studiestress",
+          "label": "Studiestress of faalangst"
+        },
+        {
+          "value": "werkzoeken",
+          "label": "Werk zoeken of loopbaan"
         }
       ]
     },
-    "sub_opvoeding": {
-      "id": "sub_opvoeding",
+    "school_sub2": {
+      "id": "school_sub2",
+      "text": "Hoeveel last heb je hiervan?",
+      "options": [
+        {
+          "value": "veel",
+          "label": "Veel, wil niet meer naar school/werk"
+        },
+        {
+          "value": "redelijk",
+          "label": "Redelijk, merk het elke dag"
+        },
+        {
+          "value": "beetje",
+          "label": "Een beetje, wil hulp"
+        }
+      ]
+    },
+    "opvoeding_sub1": {
+      "id": "opvoeding_sub1",
       "text": "Hoe oud is je kind?",
       "options": [
         {
@@ -606,257 +746,493 @@
           "label": "12+ jaar"
         }
       ]
+    },
+    "opvoeding_sub2": {
+      "id": "opvoeding_sub2",
+      "text": "Waar maak je je vooral zorgen over?",
+      "options": [
+        {
+          "value": "gedrag",
+          "label": "Gedrag of emoties van mijn kind"
+        },
+        {
+          "value": "ontwikkeling",
+          "label": "Ontwikkeling of school"
+        },
+        {
+          "value": "opvoeden",
+          "label": "Hoe ik moet opvoeden"
+        },
+        {
+          "value": "gezin",
+          "label": "Situatie thuis (scheiding, stress)"
+        }
+      ]
+    },
+    "vrouwen_sub1": {
+      "id": "vrouwen_sub1",
+      "text": "Wat speelt er vooral?",
+      "options": [
+        {
+          "value": "geweld",
+          "label": "Geweld of misbruik"
+        },
+        {
+          "value": "zwangerschap",
+          "label": "Zwangerschap of kinderwens"
+        },
+        {
+          "value": "seksualiteit",
+          "label": "Seksualiteit of relaties"
+        },
+        {
+          "value": "gezondheid",
+          "label": "Vrouwelijke gezondheid"
+        }
+      ]
+    },
+    "verslaving_sub1": {
+      "id": "verslaving_sub1",
+      "text": "Wat speelt er vooral?",
+      "options": [
+        {
+          "value": "drugs",
+          "label": "Drugs of alcohol"
+        },
+        {
+          "value": "gokken",
+          "label": "Gokken"
+        },
+        {
+          "value": "schulden",
+          "label": "Schulden of financiële problemen"
+        },
+        {
+          "value": "anders",
+          "label": "Iets anders"
+        }
+      ]
+    },
+    "verslaving_sub2": {
+      "id": "verslaving_sub2",
+      "text": "Hoe ernstig is de situatie?",
+      "options": [
+        {
+          "value": "ernstig",
+          "label": "Ernstig, loop vast"
+        },
+        {
+          "value": "zorgen",
+          "label": "Maak me zorgen, wil hulp"
+        },
+        {
+          "value": "info",
+          "label": "Wil vooral informatie"
+        }
+      ]
     }
   },
   "routing": {
-    "jongere_laagdrempelig_mentaal_algemeen": [
+    "jongere_zelfmoord": [
+      "zelfmoord1813",
       "awel",
-      "jongerenlijn",
-      "tele-onthaal"
+      "cgg-jeugd"
     ],
-    "jongere_laagdrempelig_mentaal_school": [
-      "clb",
-      "referentiepersoon",
-      "awel"
+    "volwassene_zelfmoord": [
+      "zelfmoord1813",
+      "tele-onthaal",
+      "cgg"
     ],
-    "jongere_laagdrempelig_mentaal_relaties": [
-      "jac",
-      "jongerenlijn",
-      "sensoa"
+    "geweld_onveilig": [
+      "1712",
+      "caw",
+      "vertrouwenscentrum"
     ],
-    "jongere_laagdrempelig_mentaal": [
-      "awel",
-      "jongerenlijn",
-      "jac"
-    ],
-    "jongere_laagdrempelig_school_pesten": [
-      "clb",
-      "awel",
-      "referentiepersoon"
-    ],
-    "jongere_laagdrempelig_school_leren": [
-      "clb",
-      "referentiepersoon",
+    "seksueel_geweld": [
+      "centrum-seksueel-geweld",
+      "1712",
       "caw"
     ],
-    "jongere_laagdrempelig_school": [
-      "clb",
-      "referentiepersoon",
-      "werkwinkel-vdab"
-    ],
-    "jongere_laagdrempelig_relaties": [
-      "jac",
-      "sensoa",
-      "jongerenlijn"
-    ],
-    "jongere_laagdrempelig_verslaving": [
-      "druglijn",
-      "tejo",
-      "awel"
-    ],
-    "jongere_laagdrempelig_opvoeding": [
-      "jac",
-      "caw"
-    ],
-    "jongere_laagdrempelig_vrouwen": [
-      "jac",
-      "sensoa",
-      "caw"
-    ],
-    "jongere_tussenliggend_mentaal": [
-      "cgg",
+    "jongere_laagdrempelig_mentaal_angst_zeer_urgent": [
+      "awel",
       "huisarts",
       "jac"
     ],
-    "jongere_tussenliggend_school": [
-      "clb",
-      "cgg-jeugd",
-      "werkwinkel-vdab"
-    ],
-    "jongere_tussenliggend_relaties": [
-      "cgg",
+    "jongere_laagdrempelig_mentaal_angst_redelijk_urgent": [
       "jac",
-      "sensoa"
+      "awel",
+      "clb"
     ],
-    "jongere_tussenliggend_verslaving": [
-      "druglijn",
-      "cgg",
-      "tejo"
+    "jongere_laagdrempelig_mentaal_angst_niet_urgent": [
+      "jac",
+      "jongerenlijn",
+      "clb"
     ],
-    "jongere_tussenliggend_geweld": [
-      "vertrouwenscentrum",
-      "1712",
-      "caw"
+    "jongere_laagdrempelig_mentaal_depressie_zeer_urgent": [
+      "awel",
+      "huisarts",
+      "tele-onthaal"
+    ],
+    "jongere_laagdrempelig_mentaal_depressie_redelijk_urgent": [
+      "jac",
+      "awel",
+      "clb"
+    ],
+    "jongere_laagdrempelig_mentaal_depressie_niet_urgent": [
+      "jac",
+      "jongerenlijn",
+      "tele-onthaal"
+    ],
+    "jongere_laagdrempelig_mentaal_stress": [
+      "clb",
+      "jac",
+      "referentiepersoon"
+    ],
+    "jongere_laagdrempelig_mentaal_eetstoornis": [
+      "eetexpert",
+      "jac",
+      "huisarts"
+    ],
+    "jongere_tussenliggend_mentaal_angst": [
+      "cgg-jeugd",
+      "huisarts",
+      "clb"
+    ],
+    "jongere_tussenliggend_mentaal_depressie": [
+      "cgg-jeugd",
+      "huisarts",
+      "zorgzoeker"
+    ],
+    "jongere_tussenliggend_mentaal_ernstig": [
+      "cgg-jeugd",
+      "huisarts"
     ],
     "jongere_specialist_mentaal": [
       "cgg-jeugd",
       "zorgzoeker"
     ],
-    "jongere_specialist_school": [
-      "cgg-jeugd",
-      "vaph"
+    "jongere_laagdrempelig_relaties_geweld_onveilig": [
+      "1712",
+      "awel",
+      "caw"
+    ],
+    "jongere_laagdrempelig_relaties_seksueel_geweld": [
+      "centrum-seksueel-geweld",
+      "1712",
+      "awel"
+    ],
+    "jongere_laagdrempelig_relaties_relatieproblemen": [
+      "jac",
+      "sensoa",
+      "jongerenlijn"
+    ],
+    "jongere_laagdrempelig_relaties_familie": [
+      "awel",
+      "jac",
+      "caw"
+    ],
+    "jongere_laagdrempelig_relaties_eenzaamheid": [
+      "jongerenlijn",
+      "jac",
+      "tele-onthaal"
+    ],
+    "jongere_tussenliggend_relaties_geweld": [
+      "vertrouwenscentrum",
+      "1712",
+      "cgg-jeugd"
     ],
     "jongere_specialist_relaties": [
       "cgg-jeugd",
       "centrum-seksueel-geweld"
     ],
-    "jongere_specialist_geweld": [
-      "vertrouwenscentrum",
-      "centrum-seksueel-geweld"
+    "jongere_laagdrempelig_school_pesten_veel": [
+      "clb",
+      "awel",
+      "referentiepersoon"
     ],
-    "volwassene_laagdrempelig_mentaal": [
+    "jongere_laagdrempelig_school_pesten": [
+      "clb",
+      "referentiepersoon",
+      "awel"
+    ],
+    "jongere_laagdrempelig_school_leerproblemen": [
+      "clb",
+      "referentiepersoon"
+    ],
+    "jongere_laagdrempelig_school_studiestress": [
+      "clb",
+      "jac",
+      "referentiepersoon"
+    ],
+    "jongere_laagdrempelig_school_werkzoeken": [
+      "werkwinkel-vdab",
+      "jac"
+    ],
+    "jongere_tussenliggend_school": [
+      "clb",
+      "cgg-jeugd",
+      "vaph"
+    ],
+    "jongere_specialist_school": [
+      "cgg-jeugd",
+      "vaph"
+    ],
+    "jongere_laagdrempelig_verslaving_drugs_ernstig": [
+      "druglijn",
+      "caw",
+      "huisarts"
+    ],
+    "jongere_laagdrempelig_verslaving_drugs": [
+      "druglijn",
+      "tejo",
+      "jac"
+    ],
+    "jongere_tussenliggend_verslaving": [
+      "druglijn",
+      "cgg-jeugd",
+      "caw"
+    ],
+    "jongere_specialist_verslaving": [
+      "cgg-jeugd",
+      "druglijn"
+    ],
+    "volwassene_laagdrempelig_mentaal_angst_zeer_urgent": [
+      "huisarts",
+      "tele-onthaal",
+      "caw"
+    ],
+    "volwassene_laagdrempelig_mentaal_angst": [
       "tele-onthaal",
       "caw",
       "huisarts"
     ],
-    "volwassene_laagdrempelig_relaties": [
-      "caw",
-      "sensoa",
+    "volwassene_laagdrempelig_mentaal_depressie_zeer_urgent": [
+      "huisarts",
       "tele-onthaal"
     ],
-    "volwassene_laagdrempelig_verslaving": [
-      "druglijn",
-      "caw",
-      "tele-onthaal"
-    ],
-    "volwassene_laagdrempelig_vrouwen": [
-      "caw",
-      "sensoa",
-      "1712"
-    ],
-    "volwassene_laagdrempelig_school": [
-      "werkwinkel-vdab",
-      "caw"
-    ],
-    "volwassene_laagdrempelig_opvoeding": [
+    "volwassene_laagdrempelig_mentaal_depressie": [
+      "tele-onthaal",
       "caw",
       "huisarts"
+    ],
+    "volwassene_laagdrempelig_mentaal_stress": [
+      "tele-onthaal",
+      "huisarts",
+      "caw"
+    ],
+    "volwassene_laagdrempelig_mentaal_eetstoornis": [
+      "eetexpert",
+      "huisarts"
+    ],
+    "volwassene_tussenliggend_mentaal_ernstig": [
+      "huisarts",
+      "cgg",
+      "zorgzoeker"
     ],
     "volwassene_tussenliggend_mentaal": [
       "huisarts",
       "cgg",
       "zorgzoeker"
     ],
-    "volwassene_tussenliggend_relaties": [
-      "caw",
-      "huisarts",
-      "cgg"
-    ],
-    "volwassene_tussenliggend_verslaving": [
-      "druglijn",
-      "cgg",
-      "ocmw"
-    ],
-    "volwassene_tussenliggend_financieel": [
-      "ocmw",
-      "caw",
-      "schuldbemiddeling"
-    ],
-    "volwassene_tussenliggend_geweld": [
-      "1712",
-      "caw",
-      "vertrouwenscentrum"
-    ],
-    "volwassene_tussenliggend_school": [
-      "werkwinkel-vdab",
-      "integratiedienst"
-    ],
     "volwassene_specialist_mentaal": [
       "cgg",
       "zorgzoeker"
+    ],
+    "volwassene_laagdrempelig_relaties_geweld_onveilig": [
+      "1712",
+      "caw"
+    ],
+    "volwassene_laagdrempelig_relaties_seksueel_geweld": [
+      "centrum-seksueel-geweld",
+      "1712",
+      "caw"
+    ],
+    "volwassene_laagdrempelig_relaties_relatieproblemen": [
+      "caw",
+      "sensoa"
+    ],
+    "volwassene_laagdrempelig_relaties_familie": [
+      "caw",
+      "tele-onthaal"
+    ],
+    "volwassene_laagdrempelig_relaties_eenzaamheid": [
+      "tele-onthaal",
+      "caw"
+    ],
+    "volwassene_tussenliggend_relaties_geweld": [
+      "caw",
+      "vertrouwenscentrum",
+      "cgg"
+    ],
+    "volwassene_tussenliggend_relaties": [
+      "caw",
+      "cgg",
+      "sensoa"
     ],
     "volwassene_specialist_relaties": [
       "cgg",
       "centrum-seksueel-geweld"
     ],
-    "volwassene_specialist_geweld": [
-      "centrum-seksueel-geweld",
-      "cgg"
+    "volwassene_laagdrempelig_school_werkzoeken": [
+      "werkwinkel-vdab"
     ],
-    "volwassene_specialist_financieel": [
+    "volwassene_laagdrempelig_school": [
+      "werkwinkel-vdab",
+      "caw"
+    ],
+    "volwassene_tussenliggend_school": [
+      "werkwinkel-vdab",
+      "integratiedienst"
+    ],
+    "volwassene_laagdrempelig_verslaving_drugs_ernstig": [
+      "druglijn",
+      "huisarts",
+      "caw"
+    ],
+    "volwassene_laagdrempelig_verslaving_drugs": [
+      "druglijn",
+      "caw"
+    ],
+    "volwassene_laagdrempelig_verslaving_schulden_ernstig": [
+      "ocmw",
+      "caw"
+    ],
+    "volwassene_laagdrempelig_verslaving_schulden": [
+      "ocmw",
+      "caw"
+    ],
+    "volwassene_tussenliggend_verslaving_drugs": [
+      "druglijn",
+      "cgg",
+      "caw"
+    ],
+    "volwassene_tussenliggend_verslaving_schulden": [
+      "ocmw",
       "schuldbemiddeling",
-      "ocmw"
+      "caw"
     ],
     "volwassene_specialist_verslaving": [
       "cgg",
       "schuldbemiddeling"
     ],
+    "volwassene_laagdrempelig_vrouwen_geweld": [
+      "1712",
+      "caw",
+      "centrum-seksueel-geweld"
+    ],
+    "volwassene_laagdrempelig_vrouwen_zwangerschap": [
+      "huisarts",
+      "caw"
+    ],
+    "volwassene_laagdrempelig_vrouwen_seksualiteit": [
+      "sensoa",
+      "caw"
+    ],
+    "volwassene_laagdrempelig_vrouwen": [
+      "caw",
+      "sensoa"
+    ],
+    "ouder_laagdrempelig_opvoeding_baby_gedrag": [
+      "kjg",
+      "huisarts"
+    ],
+    "ouder_laagdrempelig_opvoeding_baby_ontwikkeling": [
+      "kjg",
+      "huisarts"
+    ],
     "ouder_laagdrempelig_opvoeding_baby": [
       "kjg",
+      "caw"
+    ],
+    "ouder_laagdrempelig_opvoeding_kind_gedrag": [
+      "clb",
       "caw",
       "huisarts"
     ],
-    "ouder_laagdrempelig_opvoeding_kind": [
-      "caw",
+    "ouder_laagdrempelig_opvoeding_kind_ontwikkeling": [
       "clb",
       "huisarts"
+    ],
+    "ouder_laagdrempelig_opvoeding_kind": [
+      "clb",
+      "caw"
+    ],
+    "ouder_laagdrempelig_opvoeding_tiener_gedrag": [
+      "clb",
+      "awel",
+      "caw"
+    ],
+    "ouder_laagdrempelig_opvoeding_tiener_ontwikkeling": [
+      "clb",
+      "caw"
     ],
     "ouder_laagdrempelig_opvoeding_tiener": [
       "clb",
       "caw",
       "awel"
     ],
-    "ouder_laagdrempelig_opvoeding": [
-      "kjg",
-      "caw",
-      "clb"
-    ],
-    "ouder_laagdrempelig_mentaal": [
-      "clb",
-      "caw",
-      "awel"
-    ],
-    "ouder_laagdrempelig_school": [
-      "clb",
-      "referentiepersoon",
-      "caw"
-    ],
-    "ouder_laagdrempelig_geweld": [
-      "awel-meldpunt",
-      "1712",
-      "caw"
-    ],
-    "ouder_tussenliggend_opvoeding": [
-      "caw",
+    "ouder_tussenliggend_opvoeding_gedrag": [
       "cgg-jeugd",
+      "clb",
       "vertrouwenscentrum"
     ],
-    "ouder_tussenliggend_mentaal": [
-      "cgg-jeugd",
-      "clb",
-      "huisarts"
-    ],
-    "ouder_tussenliggend_school": [
+    "ouder_tussenliggend_opvoeding_ontwikkeling": [
       "clb",
       "vaph",
       "cgg-jeugd"
     ],
-    "ouder_tussenliggend_geweld": [
-      "vertrouwenscentrum",
-      "awel-meldpunt",
-      "1712"
+    "ouder_tussenliggend_opvoeding": [
+      "cgg-jeugd",
+      "clb",
+      "caw"
     ],
-    "ouder_tussenliggend_financieel": [
-      "ocmw",
-      "caw",
-      "kjg"
+    "ouder_specialist_opvoeding_gedrag": [
+      "cgg-jeugd",
+      "zorgzoeker"
+    ],
+    "ouder_specialist_opvoeding_ontwikkeling": [
+      "vaph",
+      "cgg-jeugd"
     ],
     "ouder_specialist_opvoeding": [
       "cgg-jeugd",
       "vaph"
     ],
+    "ouder_geweld_kind": [
+      "awel-meldpunt",
+      "1712",
+      "vertrouwenscentrum"
+    ],
+    "ouder_laagdrempelig_mentaal": [
+      "clb",
+      "awel",
+      "caw"
+    ],
+    "ouder_tussenliggend_mentaal": [
+      "cgg-jeugd",
+      "clb"
+    ],
     "ouder_specialist_mentaal": [
       "cgg-jeugd",
       "zorgzoeker"
-    ],
-    "ouder_specialist_geweld": [
-      "vertrouwenscentrum",
-      "centrum-seksueel-geweld"
-    ],
-    "ouder_specialist_school": [
-      "vaph",
-      "cgg-jeugd"
     ]
+  },
+  "skip_logic": {
+    "mentaal_sub1_zelfmoord": {
+      "skip_to": "result",
+      "route_override": "zelfmoord"
+    },
+    "relaties_sub2_onveilig": {
+      "skip_to": "result",
+      "route_override": "geweld_onveilig"
+    },
+    "relaties_sub1_seksueel_geweld": {
+      "skip_remaining": true,
+      "route_override": "seksueel_geweld"
+    },
+    "urgentie_zeer_urgent_zelfmoord": {
+      "skip_to": "result"
+    }
   },
   "crisis_services": [
     {
