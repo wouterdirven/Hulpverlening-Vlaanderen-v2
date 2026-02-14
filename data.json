@@ -13,6 +13,7 @@
         "jongere",
         "ouder",
         "laagdrempelig",
+        "tussenliggend",
         "school",
         "mentaal",
         "gedrag"
@@ -32,6 +33,7 @@
         "jongere",
         "ouder",
         "laagdrempelig",
+        "tussenliggend",
         "mentaal",
         "relaties",
         "geweld",
@@ -70,6 +72,7 @@
         "jongere",
         "ouder",
         "specialist",
+        "tussenliggend",
         "mentaal"
       ]
     },
@@ -88,7 +91,8 @@
         "ouder",
         "crisis",
         "geweld",
-        "laagdrempelig"
+        "laagdrempelig",
+        "tussenliggend"
       ]
     },
     {
@@ -158,12 +162,13 @@
         "jongere",
         "crisis",
         "mentaal",
-        "laagdrempelig"
+        "laagdrempelig",
+        "specialist"
       ]
     },
     {
       "id": "druglijn",
-      "name": "Druglijn",
+      "name": "De Druglijn",
       "description": "Anonieme hulplijn voor vragen over alcohol, drugs, medicatie en gamen. Voor gebruikers en hun omgeving.",
       "contact": {
         "phone": "078 15 10 20",
@@ -197,8 +202,266 @@
     },
     {
       "id": "awel",
-      "name": "AWEL - Meldpunt kindermishandeling",
-      "description": "Voor professionals en burgers die zich zorgen maken over een kind. Advies en begeleiding bij vermoedens van mishandeling.",
+      "name": "Awel - Anoniem luistertelefoon jongeren",
+      "description": "Anonieme luisterlijn voor alle vragen en problemen van kinderen en jongeren. Gratis, telefonisch of chat.",
+      "contact": {
+        "phone": "102",
+        "email": "Via website chat",
+        "website": "https://www.awel.be"
+      },
+      "tags": [
+        "jongere",
+        "ouder",
+        "laagdrempelig",
+        "crisis",
+        "mentaal",
+        "relaties",
+        "school",
+        "geweld"
+      ]
+    },
+    {
+      "id": "jongerenlijn",
+      "name": "Jongerenlijn",
+      "description": "Online en telefonisch advies voor jongeren tot 25 jaar. Over alle vragen rond relaties, school, thuis en jezelf.",
+      "contact": {
+        "phone": "Via website",
+        "email": "Via website chat",
+        "website": "https://www.jongerenlijn.be"
+      },
+      "tags": [
+        "jongere",
+        "laagdrempelig",
+        "mentaal",
+        "relaties",
+        "school"
+      ]
+    },
+    {
+      "id": "tejo",
+      "name": "Tejo",
+      "description": "Preventie en begeleiding voor jongeren rond alcohol, drugs en gokken. Informatie, advies en groepssessies.",
+      "contact": {
+        "phone": "Via lokale afdeling",
+        "email": "info@tejo.be",
+        "website": "https://www.tejo.be"
+      },
+      "tags": [
+        "jongere",
+        "laagdrempelig",
+        "tussenliggend",
+        "verslaving"
+      ]
+    },
+    {
+      "id": "werkwinkel-vdab",
+      "name": "Werkwinkel VDAB",
+      "description": "Gratis hulp bij werk zoeken, solliciteren, opleiding en loopbaanbegeleiding. Voor alle Vlamingen.",
+      "contact": {
+        "phone": "0800 30 700",
+        "email": "Via website",
+        "website": "https://www.vdab.be"
+      },
+      "tags": [
+        "volwassene",
+        "jongere",
+        "laagdrempelig",
+        "school"
+      ]
+    },
+    {
+      "id": "vertrouwenscentrum",
+      "name": "Vertrouwenscentrum Kindermishandeling",
+      "description": "Hulp na kindermishandeling of misbruik. Medische zorg, politieaangifte en psychologische nazorg. Via 1712 bereikbaar.",
+      "contact": {
+        "phone": "1712",
+        "email": "Via website",
+        "website": "https://www.kindengezin.be/vertrouwenscentra"
+      },
+      "tags": [
+        "jongere",
+        "ouder",
+        "tussenliggend",
+        "specialist",
+        "geweld",
+        "crisis"
+      ]
+    },
+    {
+      "id": "caw-teleonthaal",
+      "name": "CAW Teleonthaal",
+      "description": "Luistertelefoon van het CAW. Voor iedereen die even wil praten over persoonlijke problemen.",
+      "contact": {
+        "phone": "106",
+        "email": "Via CAW",
+        "website": "https://www.caw.be"
+      },
+      "tags": [
+        "volwassene",
+        "jongere",
+        "laagdrempelig",
+        "mentaal",
+        "relaties"
+      ]
+    },
+    {
+      "id": "integratiedienst",
+      "name": "Integratiedienst",
+      "description": "Ondersteuning voor nieuwkomers en anderstaligen. Taalcursussen, integratie-trajecten en maatschappelijke oriëntatie.",
+      "contact": {
+        "phone": "Via je gemeente",
+        "email": "Via gemeente",
+        "website": "https://www.integratie-inburgering.be"
+      },
+      "tags": [
+        "volwassene",
+        "ouder",
+        "tussenliggend",
+        "school"
+      ]
+    },
+    {
+      "id": "ocmw",
+      "name": "OCMW - Openbaar Centrum voor Maatschappelijk Welzijn",
+      "description": "Financiële steun, schuldhulp, sociale begeleiding en leefloon. Voor mensen in financiële of sociale nood.",
+      "contact": {
+        "phone": "Via je gemeente",
+        "email": "Via gemeente",
+        "website": "https://www.vlaanderen.be/ocmw"
+      },
+      "tags": [
+        "volwassene",
+        "ouder",
+        "tussenliggend",
+        "specialist",
+        "financieel"
+      ]
+    },
+    {
+      "id": "referentiepersoon",
+      "name": "Referentiepersoon",
+      "description": "Vertrouwenspersoon op school voor leerlingen met vragen of problemen. Laagdrempelig en discreet.",
+      "contact": {
+        "phone": "Via je school",
+        "email": "Via je school",
+        "website": "https://www.klasse.be"
+      },
+      "tags": [
+        "jongere",
+        "laagdrempelig",
+        "tussenliggend",
+        "school",
+        "mentaal"
+      ]
+    },
+    {
+      "id": "cgg-jeugd",
+      "name": "CGG Kinder- en Jeugdpsychiatrie",
+      "description": "Gespecialiseerde hulp voor psychische problemen bij kinderen en jongeren. Diagnostiek en behandeling.",
+      "contact": {
+        "phone": "Via je regio CGG",
+        "email": "Via CGG",
+        "website": "https://www.vgc.be/geestelijke-gezondheid"
+      },
+      "tags": [
+        "jongere",
+        "ouder",
+        "specialist",
+        "mentaal"
+      ]
+    },
+    {
+      "id": "vaph",
+      "name": "VAPH - Vlaams Agentschap voor Personen met een Handicap",
+      "description": "Ondersteuning en begeleiding voor personen met een handicap. Aanvragen hulpmiddelen, budget en begeleiding.",
+      "contact": {
+        "phone": "078 35 04 00",
+        "email": "vaph@vaph.be",
+        "website": "https://www.vaph.be"
+      },
+      "tags": [
+        "volwassene",
+        "jongere",
+        "ouder",
+        "specialist",
+        "tussenliggend",
+        "school"
+      ]
+    },
+    {
+      "id": "centrum-seksueel-geweld",
+      "name": "Centrum Seksueel Geweld",
+      "description": "24/7 spoedzorg na verkrachting of seksueel geweld. Medische hulp, bewijsverzameling en psychologische ondersteuning.",
+      "contact": {
+        "phone": "1712",
+        "email": "Via ziekenhuis",
+        "website": "https://www.seksuelegeweldcentra.be"
+      },
+      "tags": [
+        "volwassene",
+        "jongere",
+        "specialist",
+        "crisis",
+        "geweld",
+        "vrouwen"
+      ]
+    },
+    {
+      "id": "schuldbemiddeling",
+      "name": "Schuldbemiddeling",
+      "description": "Juridische begeleiding bij schulden. Collectieve schuldenregeling en bemiddeling met schuldeisers.",
+      "contact": {
+        "phone": "Via OCMW of CAW",
+        "email": "Via OCMW/CAW",
+        "website": "https://www.vlaanderen.be/schuldbemiddeling"
+      },
+      "tags": [
+        "volwassene",
+        "ouder",
+        "specialist",
+        "tussenliggend",
+        "financieel"
+      ]
+    },
+    {
+      "id": "eetexpert",
+      "name": "Eetexpert.be",
+      "description": "Online zelfhulp en professionele begeleiding bij eetstoornissen. Voor jongeren en volwassenen.",
+      "contact": {
+        "phone": "Via website",
+        "email": "info@eetexpert.be",
+        "website": "https://www.eetexpert.be"
+      },
+      "tags": [
+        "jongere",
+        "volwassene",
+        "laagdrempelig",
+        "tussenliggend",
+        "mentaal"
+      ]
+    },
+    {
+      "id": "zorgzoeker",
+      "name": "Zorgzoeker.be",
+      "description": "Vind hulpverleners in je buurt: psychologen, psychiaters, therapeuten. Zoeken op specialisatie en locatie.",
+      "contact": {
+        "phone": "Via website",
+        "email": "Via website",
+        "website": "https://www.zorgzoeker.be"
+      },
+      "tags": [
+        "volwassene",
+        "jongere",
+        "ouder",
+        "specialist",
+        "tussenliggend",
+        "mentaal"
+      ]
+    },
+    {
+      "id": "awel-meldpunt",
+      "name": "AWEL Meldpunt",
+      "description": "Voor professionals en burgers die zich zorgen maken over een kind. Advies en begeleiding bij vermoedens van kindermishandeling.",
       "contact": {
         "phone": "1700",
         "email": "awel@vlaanderen.be",
@@ -208,8 +471,8 @@
         "ouder",
         "volwassene",
         "crisis",
-        "geweld",
-        "laagdrempelig"
+        "tussenliggend",
+        "geweld"
       ]
     }
   ],
@@ -347,110 +610,281 @@
   },
   "routing": {
     "jongere_laagdrempelig_mentaal_algemeen": [
-      "jac",
+      "awel",
+      "jongerenlijn",
       "tele-onthaal"
     ],
     "jongere_laagdrempelig_mentaal_school": [
       "clb",
-      "jac"
+      "referentiepersoon",
+      "awel"
     ],
     "jongere_laagdrempelig_mentaal_relaties": [
       "jac",
+      "jongerenlijn",
       "sensoa"
+    ],
+    "jongere_laagdrempelig_mentaal": [
+      "awel",
+      "jongerenlijn",
+      "jac"
     ],
     "jongere_laagdrempelig_school_pesten": [
       "clb",
-      "caw"
+      "awel",
+      "referentiepersoon"
     ],
     "jongere_laagdrempelig_school_leren": [
       "clb",
+      "referentiepersoon",
       "caw"
+    ],
+    "jongere_laagdrempelig_school": [
+      "clb",
+      "referentiepersoon",
+      "werkwinkel-vdab"
     ],
     "jongere_laagdrempelig_relaties": [
       "jac",
-      "sensoa"
+      "sensoa",
+      "jongerenlijn"
     ],
     "jongere_laagdrempelig_verslaving": [
       "druglijn",
-      "jac"
+      "tejo",
+      "awel"
+    ],
+    "jongere_laagdrempelig_opvoeding": [
+      "jac",
+      "caw"
+    ],
+    "jongere_laagdrempelig_vrouwen": [
+      "jac",
+      "sensoa",
+      "caw"
     ],
     "jongere_tussenliggend_mentaal": [
       "cgg",
+      "huisarts",
       "jac"
     ],
     "jongere_tussenliggend_school": [
       "clb",
-      "cgg"
+      "cgg-jeugd",
+      "werkwinkel-vdab"
+    ],
+    "jongere_tussenliggend_relaties": [
+      "cgg",
+      "jac",
+      "sensoa"
+    ],
+    "jongere_tussenliggend_verslaving": [
+      "druglijn",
+      "cgg",
+      "tejo"
+    ],
+    "jongere_tussenliggend_geweld": [
+      "vertrouwenscentrum",
+      "1712",
+      "caw"
     ],
     "jongere_specialist_mentaal": [
-      "cgg"
+      "cgg-jeugd",
+      "zorgzoeker"
     ],
     "jongere_specialist_school": [
-      "cgg",
-      "clb"
+      "cgg-jeugd",
+      "vaph"
+    ],
+    "jongere_specialist_relaties": [
+      "cgg-jeugd",
+      "centrum-seksueel-geweld"
+    ],
+    "jongere_specialist_geweld": [
+      "vertrouwenscentrum",
+      "centrum-seksueel-geweld"
     ],
     "volwassene_laagdrempelig_mentaal": [
       "tele-onthaal",
-      "caw"
-    ],
-    "volwassene_laagdrempelig_relaties": [
-      "caw",
-      "sensoa"
-    ],
-    "volwassene_laagdrempelig_verslaving": [
-      "druglijn",
-      "caw"
-    ],
-    "volwassene_laagdrempelig_vrouwen": [
-      "caw",
-      "sensoa"
-    ],
-    "volwassene_tussenliggend_mentaal": [
-      "huisarts",
-      "cgg"
-    ],
-    "volwassene_tussenliggend_relaties": [
       "caw",
       "huisarts"
     ],
-    "volwassene_specialist_mentaal": [
+    "volwassene_laagdrempelig_relaties": [
+      "caw",
+      "sensoa",
+      "tele-onthaal"
+    ],
+    "volwassene_laagdrempelig_verslaving": [
+      "druglijn",
+      "caw",
+      "tele-onthaal"
+    ],
+    "volwassene_laagdrempelig_vrouwen": [
+      "caw",
+      "sensoa",
+      "1712"
+    ],
+    "volwassene_laagdrempelig_school": [
+      "werkwinkel-vdab",
+      "caw"
+    ],
+    "volwassene_laagdrempelig_opvoeding": [
+      "caw",
+      "huisarts"
+    ],
+    "volwassene_tussenliggend_mentaal": [
+      "huisarts",
+      "cgg",
+      "zorgzoeker"
+    ],
+    "volwassene_tussenliggend_relaties": [
+      "caw",
+      "huisarts",
       "cgg"
+    ],
+    "volwassene_tussenliggend_verslaving": [
+      "druglijn",
+      "cgg",
+      "ocmw"
+    ],
+    "volwassene_tussenliggend_financieel": [
+      "ocmw",
+      "caw",
+      "schuldbemiddeling"
+    ],
+    "volwassene_tussenliggend_geweld": [
+      "1712",
+      "caw",
+      "vertrouwenscentrum"
+    ],
+    "volwassene_tussenliggend_school": [
+      "werkwinkel-vdab",
+      "integratiedienst"
+    ],
+    "volwassene_specialist_mentaal": [
+      "cgg",
+      "zorgzoeker"
     ],
     "volwassene_specialist_relaties": [
       "cgg",
-      "caw"
+      "centrum-seksueel-geweld"
+    ],
+    "volwassene_specialist_geweld": [
+      "centrum-seksueel-geweld",
+      "cgg"
+    ],
+    "volwassene_specialist_financieel": [
+      "schuldbemiddeling",
+      "ocmw"
+    ],
+    "volwassene_specialist_verslaving": [
+      "cgg",
+      "schuldbemiddeling"
     ],
     "ouder_laagdrempelig_opvoeding_baby": [
       "kjg",
-      "caw"
+      "caw",
+      "huisarts"
     ],
     "ouder_laagdrempelig_opvoeding_kind": [
       "caw",
-      "clb"
+      "clb",
+      "huisarts"
     ],
     "ouder_laagdrempelig_opvoeding_tiener": [
       "clb",
-      "caw"
+      "caw",
+      "awel"
+    ],
+    "ouder_laagdrempelig_opvoeding": [
+      "kjg",
+      "caw",
+      "clb"
     ],
     "ouder_laagdrempelig_mentaal": [
       "clb",
+      "caw",
+      "awel"
+    ],
+    "ouder_laagdrempelig_school": [
+      "clb",
+      "referentiepersoon",
+      "caw"
+    ],
+    "ouder_laagdrempelig_geweld": [
+      "awel-meldpunt",
+      "1712",
       "caw"
     ],
     "ouder_tussenliggend_opvoeding": [
       "caw",
-      "cgg"
+      "cgg-jeugd",
+      "vertrouwenscentrum"
     ],
     "ouder_tussenliggend_mentaal": [
-      "cgg",
-      "clb"
+      "cgg-jeugd",
+      "clb",
+      "huisarts"
+    ],
+    "ouder_tussenliggend_school": [
+      "clb",
+      "vaph",
+      "cgg-jeugd"
+    ],
+    "ouder_tussenliggend_geweld": [
+      "vertrouwenscentrum",
+      "awel-meldpunt",
+      "1712"
+    ],
+    "ouder_tussenliggend_financieel": [
+      "ocmw",
+      "caw",
+      "kjg"
     ],
     "ouder_specialist_opvoeding": [
-      "cgg"
+      "cgg-jeugd",
+      "vaph"
     ],
     "ouder_specialist_mentaal": [
-      "cgg"
+      "cgg-jeugd",
+      "zorgzoeker"
+    ],
+    "ouder_specialist_geweld": [
+      "vertrouwenscentrum",
+      "centrum-seksueel-geweld"
+    ],
+    "ouder_specialist_school": [
+      "vaph",
+      "cgg-jeugd"
     ]
   },
+  "crisis_services": [
+    {
+      "id": "112",
+      "name": "112 - Noodgevallen",
+      "description": "Bij levensgevaar: ambulance, brandweer, politie"
+    },
+    {
+      "id": "1712",
+      "name": "1712 - Geweld & Kindermishandeling",
+      "description": "24/7 meldpunt voor alle vormen van geweld en misbruik"
+    },
+    {
+      "id": "1813",
+      "name": "1813 - Zelfmoordlijn",
+      "description": "24/7 voor zelfmoordgedachten of bezorgdheid om iemand"
+    },
+    {
+      "id": "106",
+      "name": "106 - Tele-Onthaal",
+      "description": "24/7 anoniem praten over alles wat je bezighoudt"
+    },
+    {
+      "id": "102",
+      "name": "102 - Awel",
+      "description": "Luisterlijn voor kinderen en jongeren"
+    }
+  ],
   "crisis_info": {
     "title": "Directe hulp nodig?",
     "services": [
@@ -469,6 +903,10 @@
       {
         "name": "106",
         "description": "Tele-Onthaal (24/7)"
+      },
+      {
+        "name": "102",
+        "description": "Awel jongeren (24/7)"
       }
     ]
   }
