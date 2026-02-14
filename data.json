@@ -1,0 +1,475 @@
+{
+  "services": [
+    {
+      "id": "clb",
+      "name": "Centrum voor Leerlingenbegeleiding (CLB)",
+      "description": "Gratis begeleiding voor leer-, gedrags- en welzijnsvragen op school. Voor alle leerlingen van kleuter tot hoger onderwijs.",
+      "contact": {
+        "phone": "Via je school",
+        "email": "Via je school",
+        "website": "https://www.clbchat.be"
+      },
+      "tags": [
+        "jongere",
+        "ouder",
+        "laagdrempelig",
+        "school",
+        "mentaal",
+        "gedrag"
+      ]
+    },
+    {
+      "id": "caw",
+      "name": "Centrum Algemeen Welzijnswerk (CAW)",
+      "description": "Gratis hulp bij alle welzijnsvragen: relaties, geweld, dakloosheid, schulden, psychische problemen. Voor iedereen.",
+      "contact": {
+        "phone": "078 15 15 15",
+        "email": "info@caw.be",
+        "website": "https://www.caw.be"
+      },
+      "tags": [
+        "volwassene",
+        "jongere",
+        "ouder",
+        "laagdrempelig",
+        "mentaal",
+        "relaties",
+        "geweld",
+        "financieel",
+        "vrouwen"
+      ]
+    },
+    {
+      "id": "jac",
+      "name": "JAC - Jongerenadviescentrum",
+      "description": "Gratis advies en begeleiding voor jongeren tussen 12 en 25 jaar. Over relaties, seksualiteit, mentale gezondheid en meer.",
+      "contact": {
+        "phone": "078 15 74 77",
+        "email": "Via website",
+        "website": "https://www.jac.be"
+      },
+      "tags": [
+        "jongere",
+        "laagdrempelig",
+        "mentaal",
+        "relaties",
+        "school"
+      ]
+    },
+    {
+      "id": "cgg",
+      "name": "Centrum Geestelijke Gezondheidszorg (CGG)",
+      "description": "Gespecialiseerde ambulante zorg voor psychische problemen. Intake, therapie en begeleiding door professionals.",
+      "contact": {
+        "phone": "Via je regio",
+        "email": "Via website",
+        "website": "https://www.vgc.be/geestelijke-gezondheid"
+      },
+      "tags": [
+        "volwassene",
+        "jongere",
+        "ouder",
+        "specialist",
+        "mentaal"
+      ]
+    },
+    {
+      "id": "1712",
+      "name": "1712 - Meldpunt geweld, misbruik en kindermishandeling",
+      "description": "24/7 gratis hulplijn voor iedereen die te maken heeft met geweld, misbruik of kindermishandeling.",
+      "contact": {
+        "phone": "1712",
+        "email": "Via website",
+        "website": "https://1712.be"
+      },
+      "tags": [
+        "volwassene",
+        "jongere",
+        "ouder",
+        "crisis",
+        "geweld",
+        "laagdrempelig"
+      ]
+    },
+    {
+      "id": "tele-onthaal",
+      "name": "Tele-Onthaal",
+      "description": "24/7 anoniem en gratis praten met een gesprekspartner over alles wat je bezighoudt. Geen vraag te groot of klein.",
+      "contact": {
+        "phone": "106",
+        "email": "chat@tele-onthaal.be",
+        "website": "https://www.tele-onthaal.be"
+      },
+      "tags": [
+        "volwassene",
+        "jongere",
+        "laagdrempelig",
+        "mentaal",
+        "crisis"
+      ]
+    },
+    {
+      "id": "huisarts",
+      "name": "Huisarts",
+      "description": "Je eerste aanspreekpunt voor gezondheid en welzijn. Kan doorverwijzen naar gespecialiseerde hulp.",
+      "contact": {
+        "phone": "Je eigen huisarts",
+        "email": "Via praktijk",
+        "website": "https://www.huisartsenvlaanderen.be"
+      },
+      "tags": [
+        "volwassene",
+        "jongere",
+        "ouder",
+        "laagdrempelig",
+        "tussenliggend",
+        "mentaal"
+      ]
+    },
+    {
+      "id": "sensoa",
+      "name": "Sensoa",
+      "description": "Expertisecentrum voor seksualiteit, seksuele gezondheid en relatievorming. Info, advies en doorverwijzing.",
+      "contact": {
+        "phone": "03 238 64 88",
+        "email": "sensoa@sensoa.be",
+        "website": "https://www.sensoa.be"
+      },
+      "tags": [
+        "jongere",
+        "volwassene",
+        "laagdrempelig",
+        "tussenliggend",
+        "relaties",
+        "vrouwen"
+      ]
+    },
+    {
+      "id": "zelfmoord1813",
+      "name": "Zelfmoordlijn 1813",
+      "description": "24/7 gratis hulplijn voor mensen met zelfmoordgedachten of bezorgde omstanders. Anoniem en vertrouwelijk.",
+      "contact": {
+        "phone": "1813",
+        "email": "Via website (chat)",
+        "website": "https://www.zelfmoord1813.be"
+      },
+      "tags": [
+        "volwassene",
+        "jongere",
+        "crisis",
+        "mentaal",
+        "laagdrempelig"
+      ]
+    },
+    {
+      "id": "druglijn",
+      "name": "Druglijn",
+      "description": "Anonieme hulplijn voor vragen over alcohol, drugs, medicatie en gamen. Voor gebruikers en hun omgeving.",
+      "contact": {
+        "phone": "078 15 10 20",
+        "email": "Via website (chat)",
+        "website": "https://www.druglijn.be"
+      },
+      "tags": [
+        "volwassene",
+        "jongere",
+        "ouder",
+        "laagdrempelig",
+        "tussenliggend",
+        "verslaving"
+      ]
+    },
+    {
+      "id": "kjg",
+      "name": "Kind & Gezin",
+      "description": "Gratis advies en ondersteuning voor (aanstaande) ouders met kinderen tot 3 jaar. Over opvoeding, gezondheid en ontwikkeling.",
+      "contact": {
+        "phone": "078 150 100",
+        "email": "info@kindengezin.be",
+        "website": "https://www.kindengezin.be"
+      },
+      "tags": [
+        "ouder",
+        "laagdrempelig",
+        "opvoeding",
+        "vrouwen"
+      ]
+    },
+    {
+      "id": "awel",
+      "name": "AWEL - Meldpunt kindermishandeling",
+      "description": "Voor professionals en burgers die zich zorgen maken over een kind. Advies en begeleiding bij vermoedens van mishandeling.",
+      "contact": {
+        "phone": "1700",
+        "email": "awel@vlaanderen.be",
+        "website": "https://www.awel.be"
+      },
+      "tags": [
+        "ouder",
+        "volwassene",
+        "crisis",
+        "geweld",
+        "laagdrempelig"
+      ]
+    }
+  ],
+  "questions": {
+    "crisis": {
+      "id": "crisis",
+      "text": "Ben je nu in direct gevaar of heeft iemand anders dat?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja, er is direct gevaar"
+        },
+        {
+          "value": "nee",
+          "label": "Nee"
+        }
+      ]
+    },
+    "voor_wie": {
+      "id": "voor_wie",
+      "text": "Voor wie zoek je hulp?",
+      "options": [
+        {
+          "value": "ouder",
+          "label": "Voor mijn kind (als ouder/verzorger)"
+        },
+        {
+          "value": "jongere",
+          "label": "Voor mezelf (12-25 jaar)"
+        },
+        {
+          "value": "volwassene",
+          "label": "Voor mezelf (25+)"
+        }
+      ]
+    },
+    "eerder_hulp": {
+      "id": "eerder_hulp",
+      "text": "Heb je al eerder hulp gezocht?",
+      "options": [
+        {
+          "value": "laagdrempelig",
+          "label": "Nee, dit is de eerste keer"
+        },
+        {
+          "value": "tussenliggend",
+          "label": "Ja, bij huisarts of school"
+        },
+        {
+          "value": "specialist",
+          "label": "Ja, ik wil nu gespecialiseerde hulp"
+        }
+      ]
+    },
+    "thema": {
+      "id": "thema",
+      "text": "Wat past het beste bij je situatie?",
+      "options": [
+        {
+          "value": "mentaal",
+          "label": "Mentale gezondheid (angst, depressie, stress)"
+        },
+        {
+          "value": "relaties",
+          "label": "Relaties & geweld (partner, familie)"
+        },
+        {
+          "value": "school",
+          "label": "School of werk (pesten, problemen)"
+        },
+        {
+          "value": "opvoeding",
+          "label": "Opvoeding & gezin"
+        },
+        {
+          "value": "vrouwen",
+          "label": "Vrouwenhulp (zwangerschap, geweld)"
+        },
+        {
+          "value": "verslaving",
+          "label": "Verslavingen & financiën"
+        }
+      ]
+    },
+    "sub_mentaal_jongere": {
+      "id": "sub_mentaal_jongere",
+      "text": "Waar wil je vooral over praten?",
+      "options": [
+        {
+          "value": "algemeen",
+          "label": "Hoe ik me voel"
+        },
+        {
+          "value": "school",
+          "label": "School en leren"
+        },
+        {
+          "value": "relaties",
+          "label": "Vrienden en relaties"
+        }
+      ]
+    },
+    "sub_school": {
+      "id": "sub_school",
+      "text": "Wat speelt vooral?",
+      "options": [
+        {
+          "value": "pesten",
+          "label": "Pesten of onveilig gevoel"
+        },
+        {
+          "value": "leren",
+          "label": "Leerproblemen of begeleiding"
+        }
+      ]
+    },
+    "sub_opvoeding": {
+      "id": "sub_opvoeding",
+      "text": "Hoe oud is je kind?",
+      "options": [
+        {
+          "value": "baby",
+          "label": "0-3 jaar"
+        },
+        {
+          "value": "kind",
+          "label": "3-12 jaar"
+        },
+        {
+          "value": "tiener",
+          "label": "12+ jaar"
+        }
+      ]
+    }
+  },
+  "routing": {
+    "jongere_laagdrempelig_mentaal_algemeen": [
+      "jac",
+      "tele-onthaal"
+    ],
+    "jongere_laagdrempelig_mentaal_school": [
+      "clb",
+      "jac"
+    ],
+    "jongere_laagdrempelig_mentaal_relaties": [
+      "jac",
+      "sensoa"
+    ],
+    "jongere_laagdrempelig_school_pesten": [
+      "clb",
+      "caw"
+    ],
+    "jongere_laagdrempelig_school_leren": [
+      "clb",
+      "caw"
+    ],
+    "jongere_laagdrempelig_relaties": [
+      "jac",
+      "sensoa"
+    ],
+    "jongere_laagdrempelig_verslaving": [
+      "druglijn",
+      "jac"
+    ],
+    "jongere_tussenliggend_mentaal": [
+      "cgg",
+      "jac"
+    ],
+    "jongere_tussenliggend_school": [
+      "clb",
+      "cgg"
+    ],
+    "jongere_specialist_mentaal": [
+      "cgg"
+    ],
+    "jongere_specialist_school": [
+      "cgg",
+      "clb"
+    ],
+    "volwassene_laagdrempelig_mentaal": [
+      "tele-onthaal",
+      "caw"
+    ],
+    "volwassene_laagdrempelig_relaties": [
+      "caw",
+      "sensoa"
+    ],
+    "volwassene_laagdrempelig_verslaving": [
+      "druglijn",
+      "caw"
+    ],
+    "volwassene_laagdrempelig_vrouwen": [
+      "caw",
+      "sensoa"
+    ],
+    "volwassene_tussenliggend_mentaal": [
+      "huisarts",
+      "cgg"
+    ],
+    "volwassene_tussenliggend_relaties": [
+      "caw",
+      "huisarts"
+    ],
+    "volwassene_specialist_mentaal": [
+      "cgg"
+    ],
+    "volwassene_specialist_relaties": [
+      "cgg",
+      "caw"
+    ],
+    "ouder_laagdrempelig_opvoeding_baby": [
+      "kjg",
+      "caw"
+    ],
+    "ouder_laagdrempelig_opvoeding_kind": [
+      "caw",
+      "clb"
+    ],
+    "ouder_laagdrempelig_opvoeding_tiener": [
+      "clb",
+      "caw"
+    ],
+    "ouder_laagdrempelig_mentaal": [
+      "clb",
+      "caw"
+    ],
+    "ouder_tussenliggend_opvoeding": [
+      "caw",
+      "cgg"
+    ],
+    "ouder_tussenliggend_mentaal": [
+      "cgg",
+      "clb"
+    ],
+    "ouder_specialist_opvoeding": [
+      "cgg"
+    ],
+    "ouder_specialist_mentaal": [
+      "cgg"
+    ]
+  },
+  "crisis_info": {
+    "title": "Directe hulp nodig?",
+    "services": [
+      {
+        "name": "112",
+        "description": "Politie, brandweer, ambulance"
+      },
+      {
+        "name": "1712",
+        "description": "Geweld en misbruik (24/7)"
+      },
+      {
+        "name": "1813",
+        "description": "Zelfmoordlijn (24/7)"
+      },
+      {
+        "name": "106",
+        "description": "Tele-Onthaal (24/7)"
+      }
+    ]
+  }
+}
