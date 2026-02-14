@@ -374,11 +374,11 @@
                 background: white;
                 padding: 0;
             }
-            
+
             .crisis-button, .navigation, .action-buttons, .show-alternatives, header {
                 display: none !important;
             }
-            
+
             .card {
                 box-shadow: none;
                 page-break-inside: avoid;
@@ -447,6 +447,10 @@
                 <h3>106</h3>
                 <p>Tele-Onthaal - anoniem praten over alles (24/7)</p>
             </div>
+            <div class="crisis-service">
+                <h3>102</h3>
+                <p>Awel - luisterlijn voor kinderen en jongeren (24/7)</p>
+            </div>
             <button class="website-button" onclick="closeCrisisModal()" style="width: 100%; margin-top: 20px;">Sluit venster</button>
         </div>
     </div>
@@ -459,13 +463,15 @@
 
         <div id="questionSection" class="card">
             <div class="progress-container">
-                <div class="progress-text" id="progressText">Vraag 1 van 5</div>
+                <div class="progress-text" id="progressText">Voortgang</div>
                 <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill" style="width: 20%"></div>
+                    <div class="progress-fill" id="progressFill" style="width: 10%"></div>
                 </div>
             </div>
 
-            <div class="question" id="questionContent"></div>
+            <div class="question" id="questionContent">
+                <!-- Dynamisch ingeladen -->
+            </div>
 
             <div class="navigation">
                 <button class="back-button hidden" id="backButton" onclick="goBack()">← Vorige</button>
@@ -479,7 +485,9 @@
 
             <div id="primaryResult"></div>
 
-            <button class="show-alternatives" id="showAlternativesBtn" onclick="toggleAlternatives()">Andere opties bekijken</button>
+            <button class="show-alternatives" id="showAlternativesBtn" onclick="toggleAlternatives()">
+                Andere opties bekijken
+            </button>
 
             <div class="alternatives" id="alternatives"></div>
 
@@ -496,7 +504,9 @@
         let answers = {};
         let questionFlow = [];
         let currentStep = 0;
+        let estimatedTotalSteps = 9;
 
+        // Data laden
         async function loadData() {
             try {
                 const response = await fetch('data.json');
@@ -509,21 +519,28 @@
         }
 
         function initWegwijzer() {
+            answers = {};
             questionFlow = ['crisis'];
+            currentStep = 0;
             showQuestion('crisis');
+        }
+
+        function updateProgress() {
+            const progress = Math.min((currentStep / estimatedTotalSteps) * 100, 95);
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressText').textContent = `${Math.round(progress)}% voltooid`;
         }
 
         function showQuestion(questionId) {
             const question = data.questions[questionId];
-            if (!question) return;
+            if (!question) {
+                console.error('Vraag niet gevonden:', questionId);
+                return;
+            }
+
+            updateProgress();
 
             const content = document.getElementById('questionContent');
-            const totalSteps = 5;
-            const progress = Math.min(((currentStep + 1) / totalSteps) * 100, 100);
-
-            document.getElementById('progressText').textContent = `Vraag ${currentStep + 1} van ${totalSteps}`;
-            document.getElementById('progressFill').style.width = progress + '%';
-
             let html = `<h2>${question.text}</h2><div class="options">`;
             question.options.forEach(option => {
                 html += `<button class="option-button" onclick="handleAnswer('${questionId}', '${option.value}')">${option.label}</button>`;
@@ -532,8 +549,9 @@
 
             content.innerHTML = html;
 
+            // Terug-knop
             const backButton = document.getElementById('backButton');
-            if (currentStep > 0) {
+            if (currentStep > 0 && questionId !== 'crisis') {
                 backButton.classList.remove('hidden');
             } else {
                 backButton.classList.add('hidden');
@@ -546,6 +564,7 @@
         function handleAnswer(questionId, value) {
             answers[questionId] = value;
 
+            // Crisis direct afhandelen
             if (questionId === 'crisis' && value === 'ja') {
                 showCrisisModal();
                 setTimeout(() => {
@@ -554,7 +573,42 @@
                 return;
             }
 
+            // Check skip-logica voor urgente cases
+            if (checkSkipLogic(questionId, value)) {
+                return;
+            }
+
             determineNextQuestion(questionId, value);
+        }
+
+        function checkSkipLogic(questionId, value) {
+            // Zelfmoordgedachten → direct naar resultaat
+            if (questionId === 'mentaal_sub1' && value === 'zelfmoord') {
+                const voorWie = answers.voor_wie;
+                const routeKey = voorWie === 'jongere' ? 'jongere_zelfmoord' : 'volwassene_zelfmoord';
+                showSpecialResult(routeKey);
+                return true;
+            }
+
+            // Onveilig gevoel bij geweld → direct naar resultaat
+            if (questionId === 'relaties_sub2' && value === 'onveilig') {
+                showSpecialResult('geweld_onveilig');
+                return true;
+            }
+
+            // Seksueel geweld → direct naar resultaat
+            if (questionId === 'relaties_sub1' && value === 'seksueel_geweld') {
+                showSpecialResult('seksueel_geweld');
+                return true;
+            }
+
+            return false;
+        }
+
+        function showSpecialResult(routeKey) {
+            currentStep = estimatedTotalSteps;
+            const serviceIds = data.routing[routeKey] || [];
+            displayResult(serviceIds);
         }
 
         function determineNextQuestion(questionId, value) {
@@ -567,30 +621,46 @@
             } else if (questionId === 'voor_wie') {
                 nextQuestion = 'eerder_hulp';
             } else if (questionId === 'eerder_hulp') {
+                nextQuestion = 'urgentie';
+            } else if (questionId === 'urgentie') {
+                // Skip duur-vraag bij zeer urgent
+                if (value === 'zeer_urgent') {
+                    nextQuestion = 'thema';
+                } else {
+                    nextQuestion = 'duur';
+                }
+            } else if (questionId === 'duur') {
                 nextQuestion = 'thema';
             } else if (questionId === 'thema') {
-                const voorWie = answers.voor_wie;
-                const thema = value;
-
-                if (thema === 'mentaal' && voorWie === 'jongere') {
-                    nextQuestion = 'sub_mentaal_jongere';
-                } else if (thema === 'school') {
-                    nextQuestion = 'sub_school';
-                } else if (thema === 'opvoeding') {
-                    nextQuestion = 'sub_opvoeding';
+                // Ga naar thema-specifieke subvraag
+                nextQuestion = getThemaSubQuestion(value, 1);
+            } else if (questionId.includes('_sub1')) {
+                // Ga naar tweede subvraag van thema
+                const thema = questionId.split('_sub')[0];
+                const sub2 = thema + '_sub2';
+                if (data.questions[sub2]) {
+                    nextQuestion = sub2;
                 } else {
                     showResult();
                     return;
                 }
-            } else {
+            } else if (questionId.includes('_sub2')) {
+                // Na tweede subvraag → resultaat
                 showResult();
                 return;
             }
 
-            if (nextQuestion) {
+            if (nextQuestion && data.questions[nextQuestion]) {
                 questionFlow.push(nextQuestion);
                 showQuestion(nextQuestion);
+            } else {
+                showResult();
             }
+        }
+
+        function getThemaSubQuestion(thema, number) {
+            const subQuestionId = thema + '_sub' + number;
+            return data.questions[subQuestionId] ? subQuestionId : null;
         }
 
         function goBack() {
@@ -598,9 +668,12 @@
                 currentStep--;
                 questionFlow.pop();
                 const previousQuestion = questionFlow[questionFlow.length - 1];
-                
-                const lastQuestion = Object.keys(answers).pop();
-                delete answers[lastQuestion];
+
+                // Verwijder laatste antwoord
+                const questionsToRemove = Object.keys(answers).filter(q => 
+                    !questionFlow.includes(q)
+                );
+                questionsToRemove.forEach(q => delete answers[q]);
 
                 showQuestion(previousQuestion);
             }
@@ -608,48 +681,93 @@
 
         function showResult() {
             const routingKey = buildRoutingKey();
-            const serviceIds = data.routing[routingKey] || [];
+            let serviceIds = data.routing[routingKey];
 
-            if (serviceIds.length === 0) {
-                alert('Geen passende dienst gevonden. Probeer andere antwoorden.');
-                goBack();
-                return;
+            // Fallback naar minder specifieke routing
+            if (!serviceIds) {
+                const fallbackKey = buildFallbackRoutingKey();
+                serviceIds = data.routing[fallbackKey];
             }
 
-            const primaryService = data.services.find(s => s.id === serviceIds[0]);
-            const alternatives = serviceIds.slice(1).map(id => data.services.find(s => s.id === id)).filter(Boolean);
-
-            document.getElementById('primaryResult').innerHTML = renderServiceCard(primaryService);
-
-            if (alternatives.length > 0) {
-                document.getElementById('showAlternativesBtn').style.display = 'block';
-                document.getElementById('alternatives').innerHTML = alternatives.map(s => renderServiceCard(s, true)).join('');
-            } else {
-                document.getElementById('showAlternativesBtn').style.display = 'none';
+            if (!serviceIds || serviceIds.length === 0) {
+                // Algemene fallback
+                serviceIds = ['caw', 'tele-onthaal'];
             }
 
-            document.getElementById('questionSection').style.display = 'none';
-            document.getElementById('resultSection').style.display = 'block';
-
-            document.getElementById('progressFill').style.width = '100%';
+            displayResult(serviceIds);
         }
 
         function buildRoutingKey() {
             const voorWie = answers.voor_wie;
             const hulpNiveau = answers.eerder_hulp;
             const thema = answers.thema;
-            const subAnswer = answers.sub_mentaal_jongere || answers.sub_school || answers.sub_opvoeding || '';
+            const urgentie = answers.urgentie;
 
-            let key = `${voorWie}_${hulpNiveau}_${thema}`;
-            if (subAnswer) {
-                key += `_${subAnswer}`;
+            // Verzamel thema-specifieke antwoorden
+            let sub1 = null;
+            let sub2 = null;
+
+            if (thema) {
+                sub1 = answers[thema + '_sub1'];
+                sub2 = answers[thema + '_sub2'];
             }
 
-            if (!data.routing[key] && subAnswer) {
+            // Bouw key van specifiek naar algemeen
+            let key = `${voorWie}_${hulpNiveau}_${thema}`;
+
+            if (sub1) key += `_${sub1}`;
+            if (sub2) key += `_${sub2}`;
+            if (urgentie) key += `_${urgentie}`;
+
+            return key;
+        }
+
+        function buildFallbackRoutingKey() {
+            const voorWie = answers.voor_wie;
+            const hulpNiveau = answers.eerder_hulp;
+            const thema = answers.thema;
+            const sub1 = answers[thema + '_sub1'];
+
+            // Probeer zonder urgentie en sub2
+            let key = `${voorWie}_${hulpNiveau}_${thema}`;
+            if (sub1) key += `_${sub1}`;
+
+            // Als nog niet gevonden, probeer alleen basis
+            if (!data.routing[key]) {
                 key = `${voorWie}_${hulpNiveau}_${thema}`;
             }
 
             return key;
+        }
+
+        function displayResult(serviceIds) {
+            currentStep = estimatedTotalSteps;
+            updateProgress();
+            document.getElementById('progressFill').style.width = '100%';
+            document.getElementById('progressText').textContent = '100% voltooid';
+
+            const primaryService = data.services.find(s => s.id === serviceIds[0]);
+            const alternatives = serviceIds.slice(1).map(id => 
+                data.services.find(s => s.id === id)
+            ).filter(Boolean);
+
+            if (!primaryService) {
+                alert('Geen passende dienst gevonden. Neem contact op met CAW.');
+                return;
+            }
+
+            document.getElementById('primaryResult').innerHTML = renderServiceCard(primaryService);
+
+            if (alternatives.length > 0) {
+                document.getElementById('showAlternativesBtn').style.display = 'block';
+                document.getElementById('alternatives').innerHTML = 
+                    alternatives.map(s => renderServiceCard(s, true)).join('');
+            } else {
+                document.getElementById('showAlternativesBtn').style.display = 'none';
+            }
+
+            document.getElementById('questionSection').style.display = 'none';
+            document.getElementById('resultSection').style.display = 'block';
         }
 
         function renderServiceCard(service, isAlternative = false) {
@@ -672,7 +790,7 @@
         function toggleAlternatives() {
             const alt = document.getElementById('alternatives');
             const btn = document.getElementById('showAlternativesBtn');
-            
+
             if (alt.style.display === 'none' || alt.style.display === '') {
                 alt.style.display = 'block';
                 btn.textContent = 'Verberg andere opties';
@@ -687,30 +805,21 @@
         }
 
         function emailResult() {
-            const routingKey = buildRoutingKey();
-            const serviceIds = data.routing[routingKey] || [];
-            const primaryService = data.services.find(s => s.id === serviceIds[0]);
-
-            if (!primaryService) return;
-
+            const primaryResultHTML = document.getElementById('primaryResult').textContent;
             const subject = encodeURIComponent('Hulpverlening info - Wegwijzer Vlaanderen');
             const body = encodeURIComponent(
-                `Beste,\n\nVia de Wegwijzer Hulpverlening heb ik deze info gevonden:\n\n` +
-                `${primaryService.name}\n` +
-                `${primaryService.description}\n\n` +
-                `Telefoon: ${primaryService.contact.phone}\n` +
-                `E-mail: ${primaryService.contact.email}\n` +
-                `Website: ${primaryService.contact.website}\n\n` +
-                `Met vriendelijke groet`
-            );
+                `Beste,
 
+Via de Wegwijzer Hulpverlening heb ik deze info gevonden:
+
+${primaryResultHTML}
+
+Met vriendelijke groet`
+            );
             window.location.href = `mailto:?subject=${subject}&body=${body}`;
         }
 
         function restartWegwijzer() {
-            answers = {};
-            questionFlow = [];
-            currentStep = 0;
             initWegwijzer();
         }
 
@@ -734,6 +843,7 @@
             }
         });
 
+        // Start applicatie
         loadData();
     </script>
 </body>
