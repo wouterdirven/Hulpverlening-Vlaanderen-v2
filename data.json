@@ -551,15 +551,15 @@
       "options": [
         {
           "value": "zeer_urgent",
-          "label": "Zeer urgent (binnen paar dagen hulp nodig)"
+          "label": "Het voelt crisis-achtig aan"
         },
         {
           "value": "redelijk_urgent",
-          "label": "Redelijk urgent (binnen 1-2 weken)"
+          "label": "Ik maak me zorgen"
         },
         {
           "value": "niet_urgent",
-          "label": "Niet urgent (kan wachten, wil goede hulp)"
+          "label": "Het is niet acuut, maar ik wil hulp"
         }
       ]
     },
@@ -1281,6 +1281,63 @@
       "huisarts",
       "kjg"
     ]
+  },
+  "meer_info": {
+    "volwassene_laagdrempelig_vrouwen_geweld": {
+      "tekst": "Wil je eerst meer lezen over dit thema?",
+      "link": "https://www.rosadoc.be",
+      "label": "RoSa – Kenniscentrum gender en feminisme"
+    },
+    "volwassene_laagdrempelig_vrouwen_zwangerschap": {
+      "tekst": "Wil je eerst meer lezen over dit thema?",
+      "link": "https://www.rosadoc.be",
+      "label": "RoSa – Kenniscentrum gender en feminisme"
+    },
+    "volwassene_laagdrempelig_vrouwen_seksualiteit": {
+      "tekst": "Wil je eerst meer lezen over dit thema?",
+      "link": "https://www.rosadoc.be",
+      "label": "RoSa – Kenniscentrum gender en feminisme"
+    },
+    "volwassene_laagdrempelig_vrouwen": {
+      "tekst": "Wil je eerst meer lezen over dit thema?",
+      "link": "https://www.rosadoc.be",
+      "label": "RoSa – Kenniscentrum gender en feminisme"
+    },
+    "jongere_laagdrempelig_vrouwen_geweld": {
+      "tekst": "Wil je eerst meer lezen over dit thema?",
+      "link": "https://www.rosadoc.be",
+      "label": "RoSa – Kenniscentrum gender en feminisme"
+    },
+    "jongere_laagdrempelig_vrouwen_seksualiteit": {
+      "tekst": "Wil je eerst meer lezen over dit thema?",
+      "link": "https://www.rosadoc.be",
+      "label": "RoSa – Kenniscentrum gender en feminisme"
+    },
+    "jongere_laagdrempelig_vrouwen_gezondheid": {
+      "tekst": "Wil je eerst meer lezen over dit thema?",
+      "link": "https://www.rosadoc.be",
+      "label": "RoSa – Kenniscentrum gender en feminisme"
+    },
+    "jongere_tussenliggend_vrouwen": {
+      "tekst": "Wil je eerst meer lezen over dit thema?",
+      "link": "https://www.rosadoc.be",
+      "label": "RoSa – Kenniscentrum gender en feminisme"
+    },
+    "ouder_laagdrempelig_vrouwen_geweld": {
+      "tekst": "Wil je eerst meer lezen over dit thema?",
+      "link": "https://www.rosadoc.be",
+      "label": "RoSa – Kenniscentrum gender en feminisme"
+    },
+    "ouder_laagdrempelig_vrouwen_seksualiteit": {
+      "tekst": "Wil je eerst meer lezen over dit thema?",
+      "link": "https://www.rosadoc.be",
+      "label": "RoSa – Kenniscentrum gender en feminisme"
+    },
+    "ouder_laagdrempelig_vrouwen_gezondheid": {
+      "tekst": "Wil je eerst meer lezen over dit thema?",
+      "link": "https://www.rosadoc.be",
+      "label": "RoSa – Kenniscentrum gender en feminisme"
+    }
   },
   "skip_logic": {
     "mentaal_sub1_zelfmoord": {
