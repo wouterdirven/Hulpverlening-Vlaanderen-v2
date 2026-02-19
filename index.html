@@ -226,7 +226,7 @@
  const options = filterOptions(questionId, question.options);
  let html = '<h2>' + question.text + '</h2><div class="options">';
  options.forEach(option => {
- html += '<button class="option-button" onclick="handleAnswer('' + questionId + '', '' + option.value + '')">' + option.label + '</button>';
+ html += '<button class="option-button" onclick="handleAnswer(\'' + questionId + '\', \'' + option.value + '\')">' + option.label + '</button>';
  });
  html += '</div>';
  document.getElementById('questionContent').innerHTML = html;
