@@ -509,6 +509,24 @@
         }
       ]
     },
+    "gender": {
+      "id": "gender",
+      "text": "Over wie gaat het?",
+      "options": [
+        {
+          "value": "man",
+          "label": "Man / Jongen"
+        },
+        {
+          "value": "vrouw",
+          "label": "Vrouw / Meisje"
+        },
+        {
+          "value": "x",
+          "label": "X / Wil ik niet zeggen"
+        }
+      ]
+    },
     "eerder_hulp": {
       "id": "eerder_hulp",
       "text": "Heb je al eerder hulp gezocht?",
@@ -582,10 +600,6 @@
         {
           "value": "opvoeding",
           "label": "Opvoeding & gezin"
-        },
-        {
-          "value": "vrouwen",
-          "label": "Vrouwenhulp (zwangerschap, geweld)"
         },
         {
           "value": "verslaving",
@@ -1254,6 +1268,36 @@
     "ouder_specialist_mentaal": [
       "cgg-jeugd",
       "zorgzoeker"
+    ],
+    "jongere_laagdrempelig_vrouwen_geweld": [
+      "1712",
+      "awel",
+      "caw"
+    ],
+    "jongere_laagdrempelig_vrouwen_seksualiteit": [
+      "sensoa",
+      "jac"
+    ],
+    "jongere_laagdrempelig_vrouwen_gezondheid": [
+      "huisarts",
+      "sensoa"
+    ],
+    "jongere_tussenliggend_vrouwen": [
+      "cgg-jeugd",
+      "sensoa"
+    ],
+    "ouder_laagdrempelig_vrouwen_geweld": [
+      "1712",
+      "caw",
+      "vertrouwenscentrum"
+    ],
+    "ouder_laagdrempelig_vrouwen_seksualiteit": [
+      "sensoa",
+      "caw"
+    ],
+    "ouder_laagdrempelig_vrouwen_gezondheid": [
+      "huisarts",
+      "kjg"
     ]
   },
   "skip_logic": {
