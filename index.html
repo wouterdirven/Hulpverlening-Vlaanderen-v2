@@ -10,7 +10,7 @@
  --primary: #3B7EA1; --primary-dark: #2C5F7A; --secondary: #5A9C8E;
  --accent: #7EBAA6; --bg-light: #F5F8F9; --bg-white: #FFFFFF;
  --text-dark: #2C3E50; --text-medium: #566573; --text-light: #7F8C8D;
- --border: #D5DBDB; --crisis: #C0392B;
+ --border: #D5DBDB; --crisis: #C0392B; --rosa: #8B5E9A;
  }
  body {
  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
@@ -108,6 +108,19 @@
  margin-bottom: 15px; min-height: 48px;
  }
  .show-alternatives:hover { background: #4A8679; }
+ /* meer_info RoSa-knop */
+ .meer-info-block {
+ display: none; margin-top: 20px; padding: 18px 20px;
+ background: #F5EEF8; border: 2px solid var(--rosa);
+ border-radius: 10px;
+ }
+ .meer-info-block p { color: var(--text-medium); margin-bottom: 12px; font-size: 0.95rem; }
+ .meer-info-button {
+ background: var(--rosa); color: white; border: none; padding: 14px 24px;
+ border-radius: 8px; font-size: 1rem; text-decoration: none; display: inline-block;
+ transition: background 0.2s; min-height: 48px;
+ }
+ .meer-info-button:hover { background: #6D4880; }
  .action-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; }
  .action-button {
  flex: 1 1 140px; background: var(--bg-white); border: 2px solid var(--primary);
@@ -118,7 +131,7 @@
  .hidden { display: none; }
  @media print {
  body { background: white; padding: 0; }
- .crisis-button, .navigation, .action-buttons, .show-alternatives, header { display: none !important; }
+ .crisis-button, .navigation, .action-buttons, .show-alternatives, .meer-info-block, header { display: none !important; }
  .card { box-shadow: none; page-break-inside: avoid; }
  }
  @media (max-width: 600px) {
@@ -167,6 +180,11 @@
  <div id="primaryResult"></div>
  <button class="show-alternatives" id="showAlternativesBtn" onclick="toggleAlternatives()">Andere opties bekijken</button>
  <div class="alternatives" id="alternatives"></div>
+ <!-- meer_info blok: alleen zichtbaar bij vrouwspecifieke resultaten -->
+ <div class="meer-info-block" id="meerInfoBlock">
+ <p id="meerInfoTekst"></p>
+ <a id="meerInfoLink" class="meer-info-button" href="#" target="_blank" rel="noopener">📚 <span id="meerInfoLabel"></span></a>
+ </div>
  <div class="action-buttons">
  <button class="action-button" onclick="printResult()">🖨️ Afdrukken</button>
  <button class="action-button" onclick="emailResult()">📧 Mailen</button>
@@ -180,6 +198,7 @@
  let questionFlow = [];
  let currentStep = 0;
  const estimatedTotalSteps = 9;
+
  async function loadData() {
  try {
  const response = await fetch('data.json');
@@ -189,28 +208,28 @@
  alert('Kon data niet laden. Controleer of data.json beschikbaar is.');
  }
  }
+
  function initWegwijzer() {
  answers = {};
  questionFlow = ['crisis'];
  currentStep = 0;
  showQuestion('crisis');
  }
+
  function updateProgress() {
  const progress = Math.min((currentStep / estimatedTotalSteps) * 100, 95);
  document.getElementById('progressFill').style.width = progress + '%';
  document.getElementById('progressText').textContent = Math.round(progress) + '% voltooid';
  }
- // ── Conditioneel options filteren ──────────────────────────────────────
+
  function filterOptions(questionId, options) {
  let filtered = [...options];
- // Voeg 'vrouwen' toe aan thema als gender vrouw of x is
  if (questionId === 'thema') {
  const g = answers.gender;
  if (g === 'vrouw' || g === 'x') {
  filtered.push({ value: 'vrouwen', label: 'Vrouwenhulp (zwangerschap, geweld)' });
  }
  }
- // Verwijder 'zwangerschap' uit vrouwen_sub1 voor kinderen jonger dan 12
  if (questionId === 'vrouwen_sub1') {
  const leeftijd = answers.opvoeding_sub1;
  if (answers.voor_wie === 'ouder' && (leeftijd === 'baby' || leeftijd === 'kind')) {
@@ -219,6 +238,7 @@
  }
  return filtered;
  }
+
  function showQuestion(questionId) {
  const question = data.questions[questionId];
  if (!question) return;
@@ -226,7 +246,7 @@
  const options = filterOptions(questionId, question.options);
  let html = '<h2>' + question.text + '</h2><div class="options">';
  options.forEach(option => {
- html += '<button class="option-button" onclick="handleAnswer(\'' + questionId + '\', \'' + option.value + '\')">' + option.label + '</button>';
+ html += '<button class="option-button" onclick="handleAnswer(\\'' + questionId + '\\', \\'' + option.value + '\\')">' + option.label + '</button>';
  });
  html += '</div>';
  document.getElementById('questionContent').innerHTML = html;
@@ -237,6 +257,7 @@
  document.getElementById('questionSection').style.display = 'block';
  document.getElementById('resultSection').style.display = 'none';
  }
+
  function handleAnswer(questionId, value) {
  answers[questionId] = value;
  if (questionId === 'crisis' && value === 'ja') {
@@ -247,6 +268,7 @@
  if (checkSkipLogic(questionId, value)) return;
  determineNextQuestion(questionId, value);
  }
+
  function checkSkipLogic(questionId, value) {
  if (questionId === 'mentaal_sub1' && value === 'zelfmoord') {
  showSpecialResult(answers.voor_wie === 'jongere' ? 'jongere_zelfmoord' : 'volwassene_zelfmoord');
@@ -262,11 +284,12 @@
  }
  return false;
  }
+
  function showSpecialResult(routeKey) {
  currentStep = estimatedTotalSteps;
- displayResult(data.routing[routeKey] || []);
+ displayResult(data.routing[routeKey] || [], routeKey);
  }
- // ── Vraagvolgorde ──────────────────────────────────────────────────────
+
  function determineNextQuestion(questionId, value) {
  currentStep++;
  let nextQuestion = null;
@@ -281,7 +304,6 @@
  } else if (questionId === 'urgentie') {
  nextQuestion = 'thema';
  } else if (questionId === 'thema') {
- // Ouder + school → eigen subvraag zonder 'werkzoeken'
  if (value === 'school' && answers.voor_wie === 'ouder') {
  nextQuestion = 'ouder_school_sub1';
  } else {
@@ -292,7 +314,6 @@
  const sub2 = thema + '_sub2';
  nextQuestion = data.questions[sub2] ? sub2 : null;
  }
- // na _sub2 of geen volgende → resultaat
  if (nextQuestion && data.questions[nextQuestion]) {
  questionFlow.push(nextQuestion);
  showQuestion(nextQuestion);
@@ -300,10 +321,12 @@
  showResult();
  }
  }
+
  function getThemaSubQuestion(thema, number) {
  const id = thema + '_sub' + number;
  return data.questions[id] ? id : null;
  }
+
  function goBack() {
  if (currentStep <= 0) return;
  currentStep--;
@@ -314,13 +337,15 @@
  .forEach(q => delete answers[q]);
  showQuestion(prev);
  }
- // ── Routing & resultaat ────────────────────────────────────────────────
+
  function showResult() {
  const key = buildRoutingKey();
  const fallback = buildFallbackKey();
- const serviceIds = data.routing[key] || data.routing[fallback] || ['caw', 'tele-onthaal'];
- displayResult(serviceIds);
+ const usedKey = data.routing[key] ? key : fallback;
+ const serviceIds = data.routing[usedKey] || ['caw', 'tele-onthaal'];
+ displayResult(serviceIds, usedKey);
  }
+
  function buildRoutingKey() {
  const v = answers.voor_wie;
  const n = answers.eerder_hulp;
@@ -334,6 +359,7 @@
  if (urg) key += '_' + urg;
  return key;
  }
+
  function buildFallbackKey() {
  const v = answers.voor_wie;
  const n = answers.eerder_hulp;
@@ -343,7 +369,8 @@
  if (sub1 && data.routing[key + '_' + sub1]) return key + '_' + sub1;
  return key;
  }
- function displayResult(serviceIds) {
+
+ function displayResult(serviceIds, routingKey) {
  document.getElementById('progressFill').style.width = '100%';
  document.getElementById('progressText').textContent = '100% voltooid';
  const primary = data.services.find(s => s.id === serviceIds[0]);
@@ -352,20 +379,35 @@
  document.getElementById('primaryResult').innerHTML = renderServiceCard(primary);
  document.getElementById('showAlternativesBtn').style.display = alts.length ? 'block' : 'none';
  document.getElementById('alternatives').innerHTML = alts.map(s => renderServiceCard(s, true)).join('');
+
+ // Toon meer_info blok alleen als het aanwezig is voor dit routingpad
+ const meerInfo = routingKey && data.meer_info && data.meer_info[routingKey];
+ const meerInfoBlock = document.getElementById('meerInfoBlock');
+ if (meerInfo) {
+ document.getElementById('meerInfoTekst').textContent = meerInfo.tekst;
+ document.getElementById('meerInfoLink').href = meerInfo.link;
+ document.getElementById('meerInfoLabel').textContent = meerInfo.label;
+ meerInfoBlock.style.display = 'block';
+ } else {
+ meerInfoBlock.style.display = 'none';
+ }
+
  document.getElementById('questionSection').style.display = 'none';
  document.getElementById('resultSection').style.display = 'block';
  }
+
  function renderServiceCard(service, isAlternative = false) {
- return '<div class="service-card ' + (isAlternative ? 'alternative' : '') + '">'
- + '<h3>' + service.name + '</h3>'
- + '<p class="service-description">' + service.description + '</p>'
- + '<div class="contact-info">'
- + '<div class="contact-item"><strong>Telefoon:</strong> ' + service.contact.phone + '</div>'
- + '<div class="contact-item"><strong>E-mail:</strong> ' + service.contact.email + '</div>'
- + '</div>'
- + '<a href="' + service.contact.website + '" target="_blank" class="website-button">→ Ga naar website</a>'
- + '</div>';
+ return '<div class="service-card ' + (isAlternative ? 'alternative' : '') + '">' +
+ '<h3>' + service.name + '</h3>' +
+ '<p class="service-description">' + service.description + '</p>' +
+ '<div class="contact-info">' +
+ '<div class="contact-item"><strong>Telefoon:</strong> ' + service.contact.phone + '</div>' +
+ '<div class="contact-item"><strong>E-mail:</strong> ' + service.contact.email + '</div>' +
+ '</div>' +
+ '<a href="' + service.contact.website + '" target="_blank" class="website-button">→ Ga naar website</a>' +
+ '</div>';
  }
+
  function toggleAlternatives() {
  const alt = document.getElementById('alternatives');
  const btn = document.getElementById('showAlternativesBtn');
@@ -373,18 +415,22 @@
  alt.style.display = open ? 'none' : 'block';
  btn.textContent = open ? 'Andere opties bekijken' : 'Verberg andere opties';
  }
+
  function printResult() { window.print(); }
+
  function emailResult() {
  const txt = document.getElementById('primaryResult').textContent;
  const sub = encodeURIComponent('Hulpverlening info - Wegwijzer Vlaanderen');
  const bod = encodeURIComponent('Beste,\n\nVia de Wegwijzer Hulpverlening heb ik deze info gevonden:\n\n' + txt + '\n\nMet vriendelijke groet');
  window.location.href = 'mailto:?subject=' + sub + '&body=' + bod;
  }
+
  function restartWegwijzer() { initWegwijzer(); }
  function showCrisisModal() { document.getElementById('crisisModal').style.display = 'block'; }
  function closeCrisisModal() { document.getElementById('crisisModal').style.display = 'none'; }
  function closeCrisisModalOnBackdrop(e) { if (e.target.id === 'crisisModal') closeCrisisModal(); }
  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCrisisModal(); });
+
  loadData();
  </script>
 </body>
