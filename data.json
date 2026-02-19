@@ -729,6 +729,24 @@
         }
       ]
     },
+    "ouder_school_sub1": {
+      "id": "ouder_school_sub1",
+      "text": "Wat speelt er bij je kind op school?",
+      "options": [
+        {
+          "value": "pesten",
+          "label": "Pesten of onveilig gevoel"
+        },
+        {
+          "value": "leerproblemen",
+          "label": "Leerproblemen of concentratie"
+        },
+        {
+          "value": "studiestress",
+          "label": "Studiestress of faalangst"
+        }
+      ]
+    },
     "opvoeding_sub1": {
       "id": "opvoeding_sub1",
       "text": "Hoe oud is je kind?",
@@ -1195,6 +1213,27 @@
       "cgg-jeugd"
     ],
     "ouder_specialist_opvoeding": [
+      "cgg-jeugd",
+      "vaph"
+    ],
+    "ouder_laagdrempelig_school_pesten": [
+      "clb",
+      "awel",
+      "caw"
+    ],
+    "ouder_laagdrempelig_school_leerproblemen": [
+      "clb",
+      "huisarts"
+    ],
+    "ouder_laagdrempelig_school_studiestress": [
+      "clb",
+      "caw"
+    ],
+    "ouder_tussenliggend_school_pesten": [
+      "clb",
+      "cgg-jeugd"
+    ],
+    "ouder_specialist_school_pesten": [
       "cgg-jeugd",
       "vaph"
     ],
