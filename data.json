@@ -547,7 +547,7 @@
     },
     "duur": {
       "id": "duur",
-      "text": "Hoe lang speelt dit al?",
+      "text": "Hoe lang merk je dit al?",
       "options": [
         {
           "value": "kort",
