@@ -563,24 +563,6 @@
         }
       ]
     },
-    "duur": {
-      "id": "duur",
-      "text": "Hoe lang merk je dit al?",
-      "options": [
-        {
-          "value": "kort",
-          "label": "Net begonnen (paar dagen/weken)"
-        },
-        {
-          "value": "middel",
-          "label": "Al een tijdje (maanden)"
-        },
-        {
-          "value": "lang",
-          "label": "Al lang (jaar of langer)"
-        }
-      ]
-    },
     "thema": {
       "id": "thema",
       "text": "Wat past het beste bij je situatie?",
